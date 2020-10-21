@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>OSM Identified Access</title>
+        <style>
+            .inputid {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="inputid way">
+            <input type="text" id="idInput" placeholder="Masukan id way">
+            <input type="submit" value="OSM" onclick="searchOSM()">
+            <input type="submit" value="Deep History" onclick="searchDeephistory()">
+        </div>
+        <script>
+            function searchOSM() {
+                var id = document.getElementById("idInput").value;
+                var osmUrl = "http://www.openstreetmap.org/way/";
+                var goTo = osmUrl+id;
+                window.location.href = goTo;
+            }
+
+            function searchDeephistory() {
+                var id = document.getElementById("idInput").value;
+                var deephistoryUrl = "https://osmlab.github.io/osm-deep-history/#/way/";
+                var goTo = deephistoryUrl+id;
+                window.location.href = goTo;
+            }
+        </script>
+    </body>
+</html>
