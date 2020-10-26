@@ -13,6 +13,7 @@
                 <option value="" disabled selected>Select Identifier</option>
                 <option value="osm">OSM</option>
                 <option value="deepHistory">Deep History</option>
+                <option value="pewu">Pewu</option>
             </select>
             <input type="text" id="idInput" placeholder="Input id way">
             <input type="submit" value="Search" onclick="search()">
@@ -23,12 +24,16 @@
                 var idInput = document.getElementById("idInput").value;
                 if (datalist === "osm") {
                     var osmUrl = "http://www.openstreetmap.org/way/";
-                    var goTo = osmUrl + idInput;
-                    window.location.href = goTo;
+                    var search = osmUrl + idInput;
+                    window.location.href = search;
                 } else if (datalist === "deepHistory") {
                     var deephistoryUrl = "https://osmlab.github.io/osm-deep-history/#/way/";
-                    var goTo = deephistoryUrl + idInput;
-                    window.location.href = goTo;
+                    var search = deephistoryUrl + idInput;
+                    window.location.href = search;
+                } else if (datalist === "pewu") {
+                    var pewuUrl = "https://pewu.github.io/osm-history/#/way/";
+                    var search = pewuUrl + idInput;
+                    window.location.href = search;
                 };
             }
         </script>
