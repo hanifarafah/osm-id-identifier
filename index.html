@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>OSM Id Identifier</title>
+        <title>OSM Identified Access</title>
         <style>
             .inputid {
                 text-align: center;
@@ -9,23 +9,26 @@
     </head>
     <body>
         <div class="inputid way">
-            <input type="text" id="idInput" placeholder="Masukan id way">
-            <input type="submit" value="OSM" onclick="searchOSM()">
-            <input type="submit" value="Deep History" onclick="searchDeephistory()">
+            <select name="datalist" id="datalist">
+                <option value="osm">OSM</option>
+                <option value="deepHistory">Deep History</option>
+            </select>
+            <input type="text" id="idInput" placeholder="Input id way">
+            <input type="submit" value="Search" onclick="search()">
         </div>
         <script>
-            function searchOSM() {
-                var id = document.getElementById("idInput").value;
-                var osmUrl = "http://www.openstreetmap.org/way/";
-                var goTo = osmUrl+id;
-                window.location.href = goTo;
-            }
-
-            function searchDeephistory() {
-                var id = document.getElementById("idInput").value;
-                var deephistoryUrl = "https://osmlab.github.io/osm-deep-history/#/way/";
-                var goTo = deephistoryUrl+id;
-                window.location.href = goTo;
+            function search() {
+                var datalist = document.getElementById("datalist").value;
+                var idInput = document.getElementById("idInput").value;
+                if (datalist === "osm") {
+                    var osmUrl = "http://www.openstreetmap.org/way/";
+                    var goTo = osmUrl + idInput;
+                    window.location.href = goTo;
+                } else if (datalist === "deepHistory") {
+                    var deephistoryUrl = "https://osmlab.github.io/osm-deep-history/#/way/";
+                    var goTo = deephistoryUrl + idInput;
+                    window.location.href = goTo;
+                };
             }
         </script>
     </body>
