@@ -8,15 +8,27 @@
         </style>
     </head>
     <body>
-        <div class="inputid way">
-            <select name="datalist" id="datalist">
-                <option value="" disabled selected>Select Identifier</option>
-                <option value="osm">OSM</option>
-                <option value="deepHistory">Deep History</option>
-                <option value="pewu">Pewu</option>
-            </select>
-            <input type="text" id="idInput" placeholder="Input id way">
-            <input type="submit" value="Identify" onclick="search()">
+        <div class="form">
+            <div class="select-type">
+                <input type="radio" id="changeset" name="type" value="changeset">
+                <label for="changeset">Changeset</label>
+                <input type="radio" id="relation" name="type" value="relation">
+                <label for="relation">Relation</label>
+                <input type="radio" id="way" name="type" value="way">
+                <label for="way">Way</label>
+                <input type="radio" id="node" name="type" value="node">
+                <label for="Node">Node</label>
+            </div>
+            <div class="input-id">
+                <select name="datalist" id="datalist">
+                    <option value="" disabled selected>Select Identifier</option>
+                    <option value="osm">OSM</option>
+                    <option value="deepHistory">Deep History</option>
+                    <option value="pewu">Pewu</option>
+                </select>
+                <input type="text" id="idInput" placeholder="Input id way">
+                <input type="submit" value="Identify" onclick="search()">
+            </div>
         </div>
         <script>
             function search() {
