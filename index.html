@@ -26,6 +26,7 @@
                 <select name="identifier" id="identifier">
                     <option value="" disabled selected>Select Identifier</option>
                     <option value="osm">OSM</option>
+                    <option value="josm">JOSM</option>
                     <option value="deepHistory">Deep History</option>
                     <option value="pewu">Pewu</option>
                 </select>
@@ -39,6 +40,12 @@
                                relation: "http://www.openstreetmap.org/relation/",
                                way: "http://www.openstreetmap.org/way/",
                                node: "http://www.openstreetmap.org/node/"};
+
+                var josmUrl = {changeset: "http://localhost:8111/import?url=https://www.openstreetmap.org/changeset/",
+                               relation: "http://localhost:8111/import?url=https://www.openstreetmap.org/relation/",
+                               way: "http://localhost:8111/import?url=https://www.openstreetmap.org/way/",
+                               node: "http://localhost:8111/import?url=https://www.openstreetmap.org/node/",
+                               lastUrl: "/download"};
 
                 var deephistoryUrl = {relation: "https://osmlab.github.io/osm-deep-history/#/relation/",
                                        way: "https://osmlab.github.io/osm-deep-history/#/way/",
@@ -60,6 +67,9 @@
                 if (identifier === "osm" && changesetType.checked === true) {
                     var search = osmUrl.changeset + id;
                     window.location.href = search;
+                } else if (identifier === "josm" && changesetType.checked === true) {
+                    var search = josmUrl.changeset + id + josmUrl.lastUrl;
+                    window.location.href = search;
                 } else if (identifier === "deepHistory" && changesetType.checked === true) {
                     alert("Not available");
                 } else if (identifier === "pewu" && changesetType.checked === true) {
@@ -68,6 +78,9 @@
                 //relation
                 else if (identifier === "osm" && relationType.checked === true) {
                     var search = osmUrl.relation + id;
+                    window.location.href = search;
+                } else if (identifier === "josm" && relationType.checked === true) {
+                    var search = josmUrl.relation + id + josmUrl.lastUrl;
                     window.location.href = search;
                 } else if (identifier === "deepHistory" && relationType.checked === true) {
                     var search = deephistoryUrl.relation + id;
@@ -80,6 +93,9 @@
                 else if (identifier === "osm" && wayType.checked === true) {
                     var search = osmUrl.way + id;
                     window.location.href = search;
+                } else if (identifier === "josm" && wayType.checked === true) {
+                    var search = josmUrl.way + id + josmUrl.lastUrl;
+                    window.location.href = search;
                 } else if (identifier === "deepHistory" && wayType.checked === true) {
                     var search = deephistoryUrl.way + id;
                     window.location.href = search;
@@ -90,6 +106,9 @@
                 //node
                 else if (identifier === "osm" && nodeType.checked === true) {
                     var search = osmUrl.node + id;
+                    window.location.href = search;
+                } else if (identifier === "josm" && nodeType.checked === true) {
+                    var search = josmUrl.node + id + josmUrl.lastUrl;
                     window.location.href = search;
                 } else if (identifier === "deepHistory" && nodeType.checked === true) {
                     var search = deephistoryUrl.node + id;
