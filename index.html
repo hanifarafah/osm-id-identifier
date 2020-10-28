@@ -56,10 +56,17 @@
                 var identifier = document.getElementById("identifier").value;
                 var id = document.getElementById("input-id").value;
 
+                //changeset
                 if (identifier === "osm" && changesetType.checked === true) {
                     var search = osmUrl.changeset + id;
                     window.location.href = search;
-                } else if (identifier === "osm" && relationType.checked === true) {
+                } else if (identifier === "deepHistory" && changesetType.checked === true) {
+                    alert("Not avaliable");
+                } else if (identifier === "pewu" && changesetType.checked === true) {
+                    alert("Not avaliable");
+                }
+                //relation
+                else if (identifier === "osm" && relationType.checked === true) {
                     var search = osmUrl.relation + id;
                     window.location.href = search;
                 } else if (identifier === "deepHistory" && relationType.checked === true) {
@@ -68,7 +75,9 @@
                 } else if (identifier === "pewu" && relationType.checked === true) {
                     var search = pewuUrl.relation + id;
                     window.location.href = search;
-                } else if (identifier === "osm" && wayType.checked === true) {
+                }
+                //way
+                else if (identifier === "osm" && wayType.checked === true) {
                     var search = osmUrl.way + id;
                     window.location.href = search;
                 } else if (identifier === "deepHistory" && wayType.checked === true) {
@@ -77,7 +86,9 @@
                 } else if (identifier === "pewu" && wayType.checked === true) {
                     var search = pewuUrl.way + id;
                     window.location.href = search;
-                } else if (identifier === "osm" && nodeType.checked === true) {
+                }
+                //node
+                else if (identifier === "osm" && nodeType.checked === true) {
                     var search = osmUrl.node + id;
                     window.location.href = search;
                 } else if (identifier === "deepHistory" && nodeType.checked === true) {
