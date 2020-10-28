@@ -5,14 +5,14 @@
             .form {
                 text-align: center;
             }
-            .select-type {
+            .type {
                 margin: 10px 0;
             }
         </style>
     </head>
     <body>
         <div class="form">
-            <div class="select-type">
+            <div class="select type">
                 <input type="radio" id="changeset" name="type" value="changeset">
                 <label for="changeset">Changeset</label>
                 <input type="radio" id="relation" name="type" value="relation">
@@ -22,32 +22,69 @@
                 <input type="radio" id="node" name="type" value="node">
                 <label for="Node">Node</label>
             </div>
-            <div class="input-id">
-                <select name="datalist" id="datalist">
+            <div class="select submit">
+                <select name="identifier" id="identifier">
                     <option value="" disabled selected>Select Identifier</option>
                     <option value="osm">OSM</option>
                     <option value="deepHistory">Deep History</option>
                     <option value="pewu">Pewu</option>
                 </select>
-                <input type="text" id="idInput" placeholder="Input id way">
+                <input type="text" id="input-id" placeholder="Input id">
                 <input type="submit" value="Identify" onclick="search()">
             </div>
         </div>
         <script>
             function search() {
-                var datalist = document.getElementById("datalist").value;
-                var idInput = document.getElementById("idInput").value;
-                if (datalist === "osm") {
-                    var osmUrl = "http://www.openstreetmap.org/way/";
-                    var search = osmUrl + idInput;
+                var osmUrl = {changeset: "http://www.openstreetmap.org/changeset/",
+                               relation: "http://www.openstreetmap.org/relation/",
+                               way: "http://www.openstreetmap.org/way/",
+                               node: "http://www.openstreetmap.org/node/"};
+
+                var deephistoryUrl = {relation: "https://osmlab.github.io/osm-deep-history/#/relation/",
+                                       way: "https://osmlab.github.io/osm-deep-history/#/way/",
+                                       node: "https://osmlab.github.io/osm-deep-history/#/node/"};
+
+                var pewuUrl = {relation: "https://pewu.github.io/osm-history/#/relation/",
+                                way: "https://pewu.github.io/osm-history/#/way/",
+                                node: "https://pewu.github.io/osm-history/#/node/"};
+                
+                var changesetType = document.getElementById("changeset");
+                var relationType = document.getElementById("relation");
+                var wayType = document.getElementById("way");
+                var nodeType = document.getElementById("node");
+
+                var identifier = document.getElementById("identifier").value;
+                var id = document.getElementById("input-id").value;
+
+                if (identifier === "osm" && changesetType.checked === true) {
+                    var search = osmUrl.changeset + id;
                     window.location.href = search;
-                } else if (datalist === "deepHistory") {
-                    var deephistoryUrl = "https://osmlab.github.io/osm-deep-history/#/way/";
-                    var search = deephistoryUrl + idInput;
+                } else if (identifier === "osm" && relationType.checked === true) {
+                    var search = osmUrl.relation + id;
                     window.location.href = search;
-                } else if (datalist === "pewu") {
-                    var pewuUrl = "https://pewu.github.io/osm-history/#/way/";
-                    var search = pewuUrl + idInput;
+                } else if (identifier === "deepHistory" && relationType.checked === true) {
+                    var search = deephistoryUrl.relation + id;
+                    window.location.href = search;
+                } else if (identifier === "pewu" && relationType.checked === true) {
+                    var search = pewuUrl.relation + id;
+                    window.location.href = search;
+                } else if (identifier === "osm" && wayType.checked === true) {
+                    var search = osmUrl.way + id;
+                    window.location.href = search;
+                } else if (identifier === "deepHistory" && wayType.checked === true) {
+                    var search = deephistoryUrl.way + id;
+                    window.location.href = search;
+                } else if (identifier === "pewu" && wayType.checked === true) {
+                    var search = pewuUrl.way + id;
+                    window.location.href = search;
+                } else if (identifier === "osm" && nodeType.checked === true) {
+                    var search = osmUrl.node + id;
+                    window.location.href = search;
+                } else if (identifier === "deepHistory" && nodeType.checked === true) {
+                    var search = deephistoryUrl.node + id;
+                    window.location.href = search;
+                } else if (identifier === "pewu" && nodeType.checked === true) {
+                    var search = pewuUrl.node + id;
                     window.location.href = search;
                 };
             }
