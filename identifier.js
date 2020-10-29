@@ -1,4 +1,4 @@
-function identifier() {
+function identify() {
     var osmUrl = {changeset: "http://www.openstreetmap.org/changeset/",
                    relation: "http://www.openstreetmap.org/relation/",
                    way: "http://www.openstreetmap.org/way/",
@@ -27,19 +27,19 @@ function identifier() {
     var id = document.getElementById("input-id").value;
 
     //alert for null
-    if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+    if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && !identifier && !id) {
         alert("Please select id type, identifier and input id!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && !identifier && !id) {
         alert("Please select identifier and input id!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !id) {
         alert("Please select id type and input id!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !(id === null)) {
+    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && !identifier && id !== null) {
         alert("Please select id type and identifier!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !(id === null)) {
+    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && id !== null) {
         alert("Please select id type!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !(id === null)) {
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && !identifier && id !== null) {
         alert("Please select identifier!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true ) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !id) {
         alert("Please input id!");
     }
     //changeset
