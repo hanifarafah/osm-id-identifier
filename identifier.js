@@ -26,9 +26,21 @@ function identifier() {
     var identifier = document.getElementById("identifier").value;
     var id = document.getElementById("input-id").value;
 
-    //alert to please select type
-    if ((identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu") && !(changesetType.checked === true || relationType.checked === true || wayType.checked === true || nodeType.checked === true)) {
-        alert("Please select type!");
+    //alert for null
+    if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+        alert("Please select id type, identifier and input id!");
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+        alert("Please select identifier and input id!");
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+        alert("Please select id type and input id!");
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !(id === null)) {
+        alert("Please select id type and identifier!");
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === false ) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !(id === null)) {
+        alert("Please select id type!");
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true ) && !(identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && !(id === null)) {
+        alert("Please select identifier!");
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true ) && (identifier === ("osm" || "josm" || "deepHistory" || "pewu")) && (id === "")) {
+        alert("Please input id!");
     }
     //changeset
     else if (identifier === "osm" && changesetType.checked === true) {
