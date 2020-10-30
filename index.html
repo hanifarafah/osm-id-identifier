@@ -1,28 +1,44 @@
 <html>
     <head>
         <title>OSM Id Identifier Access</title>
+        <meta charset="utf-8">
         <style>
             .form {
                 text-align: center;
             }
+            .select-type {
+                height: 50px;
+            }
             .type {
                 margin: 10px 0;
+                padding: 0 5px;
+            }
+            #identifier {
+                height: 30px;
             }
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="form">
-            <div class="select type">
-                <input type="radio" id="changeset" name="type" value="changeset">
-                <label for="changeset">Changeset</label>
-                <input type="radio" id="relation" name="type" value="relation">
-                <label for="relation">Relation</label>
-                <input type="radio" id="way" name="type" value="way">
-                <label for="way">Way</label>
-                <input type="radio" id="node" name="type" value="node">
-                <label for="Node">Node</label>
+            <div class="select select-type">
+                <label class="type">
+                    <input type="radio" id="changeset" name="type" value="changeset"> Changeset
+                </label>
+                <label class="type">
+                    <input type="radio" id="relation" name="type" value="relation"> Relation
+                </label>
+                <label class="type">
+                    <input type="radio" id="way" name="type" value="way"> Way
+                </label>
+                <label class="type">
+                    <input type="radio" id="node" name="type" value="node"> Node
+                </label>
             </div>
-            <div class="select submit">
+            <div class="select select-submit">
                 <select name="identifier" id="identifier">
                     <option value="" disabled selected>Select Identifier</option>
                     <option value="osm">OSM</option>
