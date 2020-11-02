@@ -45,10 +45,10 @@ function identify() {
     //changeset
     else if (identifier === "osm" && changesetType.checked === true) {
         var search = osmUrl.changeset + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "josm" && changesetType.checked === true) {
         var search = josmUrl.changeset + id + josmUrl.lastUrl;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "deepHistory" && changesetType.checked === true) {
         alert("Not available");
     } else if (identifier === "pewu" && changesetType.checked === true) {
@@ -57,43 +57,43 @@ function identify() {
     //relation
     else if (identifier === "osm" && relationType.checked === true) {
         var search = osmUrl.relation + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "josm" && relationType.checked === true) {
         var search = josmUrl.relation + id + josmUrl.lastUrl;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "deepHistory" && relationType.checked === true) {
         var search = deephistoryUrl.relation + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "pewu" && relationType.checked === true) {
         var search = pewuUrl.relation + id;
-        window.location.href = search;
+        window.open(search);
     }
     //way
     else if (identifier === "osm" && wayType.checked === true) {
         var search = osmUrl.way + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "josm" && wayType.checked === true) {
         var search = josmUrl.way + id + josmUrl.lastUrl;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "deepHistory" && wayType.checked === true) {
         var search = deephistoryUrl.way + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "pewu" && wayType.checked === true) {
         var search = pewuUrl.way + id;
-        window.location.href = search;
+        window.open(search);
     }
     //node
     else if (identifier === "osm" && nodeType.checked === true) {
         var search = osmUrl.node + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "josm" && nodeType.checked === true) {
         var search = josmUrl.node + id + josmUrl.lastUrl;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "deepHistory" && nodeType.checked === true) {
         var search = deephistoryUrl.node + id;
-        window.location.href = search;
+        window.open(search);
     } else if (identifier === "pewu" && nodeType.checked === true) {
         var search = pewuUrl.node + id;
-        window.location.href = search;
+        window.open(search);
     };
 }
