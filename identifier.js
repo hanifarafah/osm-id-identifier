@@ -1,3 +1,11 @@
+var inputId = document.getElementById("input-id");
+inputId.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("submit").click();
+    }
+});
+
 function identify() {
     var achaviUrl = {changeset: "https://overpass-api.de/achavi/?changeset=",
                     lastUrl: "&relations=true"};
