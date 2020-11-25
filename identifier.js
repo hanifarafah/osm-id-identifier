@@ -17,6 +17,11 @@ function identify() {
     var pewuUrl = {relation: "https://pewu.github.io/osm-history/#/relation/",
                     way: "https://pewu.github.io/osm-history/#/way/",
                     node: "https://pewu.github.io/osm-history/#/node/"};
+
+    var osmchaUrl = {changeset: "https://osmcha.org/changesets/"};
+    
+    var achaviUrl = {changeset: "https://overpass-api.de/achavi/?changeset=",
+                    lastUrl: "&relations=true"};
     
     var changesetType = document.getElementById("changeset");
     var relationType = document.getElementById("relation");
@@ -31,15 +36,15 @@ function identify() {
         alert("Please select id type, identifier and input id!");
     } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && !identifier && !id) {
         alert("Please select identifier and input id!");
-    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && (identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu") && !id) {
+    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && (identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu" || identifier === "osmcha" || identifier === "achavi") && !id) {
         alert("Please select id type and input id!");
     } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && !identifier && id !== null) {
         alert("Please select id type and identifier!");
-    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && (identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu") && id !== null) {
+    } else if (!(changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) && (identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu" || identifier === "osmcha" || identifier === "achavi") && id !== null) {
         alert("Please select id type!");
     } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && !identifier && id !== null) {
         alert("Please select identifier!");
-    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && (identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu") && !id) {
+    } else if (((changesetType.checked || relationType.checked || wayType.checked || nodeType.checked) === true) && (identifier === "osm" || identifier === "josm" || identifier === "deepHistory" || identifier === "pewu" || identifier === "osmcha" || identifier === "achavi") && !id) {
         alert("Please input id!");
     }
     //changeset
@@ -53,6 +58,12 @@ function identify() {
         alert("Not available");
     } else if (identifier === "pewu" && changesetType.checked === true) {
         alert("Not available");
+    } else if (identifier === "osmcha" && changesetType.checked === true) {
+        var search = osmchaUrl.changeset + id;
+        window.open(search);
+    } else if (identifier === "achavi" && changesetType.checked === true) {
+        var search = achaviUrl.changeset + id + achaviUrl.lastUrl;
+        window.open(search);
     }
     //relation
     else if (identifier === "osm" && relationType.checked === true) {
@@ -67,6 +78,10 @@ function identify() {
     } else if (identifier === "pewu" && relationType.checked === true) {
         var search = pewuUrl.relation + id;
         window.open(search);
+    } else if (identifier === "osmcha" && relationType.checked === true) {
+        alert("Not available");
+    } else if (identifier === "achavi" && relationType.checked === true) {
+        alert("Not available");
     }
     //way
     else if (identifier === "osm" && wayType.checked === true) {
@@ -81,6 +96,10 @@ function identify() {
     } else if (identifier === "pewu" && wayType.checked === true) {
         var search = pewuUrl.way + id;
         window.open(search);
+    } else if (identifier === "osmcha" && wayType.checked === true) {
+        alert("Not available");
+    } else if (identifier === "achavi" && wayType.checked === true) {
+        alert("Not available");
     }
     //node
     else if (identifier === "osm" && nodeType.checked === true) {
@@ -95,5 +114,9 @@ function identify() {
     } else if (identifier === "pewu" && nodeType.checked === true) {
         var search = pewuUrl.node + id;
         window.open(search);
+    } else if (identifier === "osmcha" && nodeType.checked === true) {
+        alert("Not available");
+    } else if (identifier === "achavi" && nodeType.checked === true) {
+        alert("Not available");
     };
 }
